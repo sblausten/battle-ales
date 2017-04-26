@@ -5,20 +5,21 @@ class Battle < Sinatra::Base
 
   get '/' do
     erb :index
-    "value = " << session[:value].inspect
+#    "player_1_name = " << session[:player_1_name].inspect
+#    "player_2_name = " << session[:player_2_name].inspect
   end
 
-  get '/:value' do
-    session['value'] = params['value']
-  end
-
-  post '/play:value' do
-    p params
-    @player_1_name = params[:player_1_name]
-    @player_2_name = params[:player_2_name]
-    erb :play
+  post '/names' do
     session[:player_1_name] = params[:player_1_name]
     session[:player_2_name] = params[:player_2_name]
+    redirect('/play')
+  end
+
+  get '/play' do
+    p params
+    @player_1_name = session[:player_1_name]
+    @player_2_name = session[:player_2_name]
+    erb :play
   end
 
   run! if app_file == $0
