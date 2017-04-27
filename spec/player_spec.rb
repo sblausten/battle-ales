@@ -24,12 +24,4 @@ describe Player do
 	    expect { cristina.damage }.to change { cristina.hp }.by -10
 	  end
 	end
-
-	describe '#attack' do
-	  it 'reduces players HP by 10' do
-	    expect { cristina.attack(sam) }.to change { sam.hp }.by -10
-	  end
-	end
-
-
 end
