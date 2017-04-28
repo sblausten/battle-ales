@@ -16,9 +16,6 @@ describe Game do
   end
 
   describe '#attack' do
-    it 'reduces players HP by 10' do
-      expect(game).to respond_to(:attack).with(1).argument
-    end
     it 'damages the player' do
       expect(sam).to receive(:damage)
       game.attack(sam)
