@@ -5,6 +5,10 @@ describe Game do
   let (:sam) { double :player_2, hp: 60 }
   subject(:game) { described_class.new(cristina, sam) }
 
+  it 'is implemented as a singleton pattern' do
+    expect(Game).to respond_to(:instance)
+  end
+
   describe '#players' do
     it 'stores instances of Player class' do
       expect(game.player_1).to eq cristina
