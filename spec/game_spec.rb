@@ -1,8 +1,8 @@
 require 'game'
 
 describe Game do
-  let (:cristina) { double :player_1 }
-  let (:sam) { double :player_2 }
+  let (:cristina) { double :player_1, hp: 60 }
+  let (:sam) { double :player_2, hp: 60 }
   subject(:game) { described_class.new(cristina, sam) }
 
   describe '#players' do
@@ -42,6 +42,11 @@ describe Game do
   describe '#lose?' do
     it 'initializes as false' do
       expect(game.lose?).to be false
+    end
+
+    it 'sends hp message to players' do
+      expect(sam).to receive(:hp)
+      game.lose?
     end
     
     it 'returns true if a player has 0 HP' do
