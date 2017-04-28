@@ -60,8 +60,13 @@ describe Game do
     it 'initializes as nil' do
       expect(Game.game).to be_nil
     end
-    it 'return instance of Game' do
-      expect(Game.game).to be_an_instance_of Game
+  end
+
+  describe '#self.game=' do
+    it 'sets the variable returned by self.game' do
+      new_game = Game.new(sam, cristina)
+      Game.game = new_game
+      expect(Game.game).to eq new_game
     end
   end
 
