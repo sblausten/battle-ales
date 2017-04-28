@@ -27,6 +27,10 @@ class Game
     players.select { |player| player != turn }.first
   end
 
+  def lose?
+    true
+  end
+
   private
   attr_accessor :players
   attr_writer :turn

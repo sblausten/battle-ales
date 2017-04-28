@@ -40,10 +40,14 @@ describe Game do
   end
 
   describe '#lose?' do
+    it 'initializes as false' do
+      expect(game.lose?).to be false
+    end
+    
     it 'returns true if a player has 0 HP' do
       allow(sam).to receive(:hp).and_return 0
       allow(cristina).to receive(:hp).and_return 10
-      expect(game.lose?).to be_true
+      expect(game.lose?).to be true
     end
   end
 
