@@ -5,8 +5,18 @@ describe Game do
   let (:sam) { double :player_2, hp: 60 }
   subject(:game) { described_class.new(cristina, sam) }
 
-  it 'is implemented as a singleton pattern' do
-    expect(Game).to respond_to(:instance)
+  describe '#self.game' do
+    it 'is responded to by Game' do
+      expect(Game).to respond_to :game
+    end
+  end
+
+  describe '#self.game=' do
+    it 'sets the variable returned by self.game' do
+      new_game = Game.new(sam, cristina)
+      Game.game = new_game
+      expect(Game.game).to eq new_game
+    end
   end
 
   describe '#players' do
@@ -60,18 +70,5 @@ describe Game do
     end
   end
 
-  describe '#self.game' do
-    it 'is responded to by Game' do
-      expect(Game).to respond_to :game
-    end
-  end
-
-  describe '#self.game=' do
-    it 'sets the variable returned by self.game' do
-      new_game = Game.new(sam, cristina)
-      Game.game = new_game
-      expect(Game.game).to eq new_game
-    end
-  end
 
 end

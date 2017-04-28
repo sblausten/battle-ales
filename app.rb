@@ -5,6 +5,10 @@ require_relative 'lib/game.rb'
 class Battle < Sinatra::Base
   enable :sessions
 
+  before do 
+    @game = Game.game
+  end
+  
   get '/' do
     erb :index
   end
@@ -17,12 +21,10 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @game = Game.game
     erb :play
   end
 
   get '/attack' do
-    @game = Game.game
     erb :attack
   end
 
