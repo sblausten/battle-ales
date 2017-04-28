@@ -1,7 +1,9 @@
-<%= @attacker %> attacked <%= @victim %>
+<% @game.attack(@game.receiver) %>
+<%= @game.turn.name %> attacked <%= @game.receiver.name %>
 <br>
-<%= @player_1_name %> is now at <%= @player_1_hp %> HP
+<%= @game.player_1.name %> is now at <%= @game.player_1.hp %> HP
 <br>
-<%= @player_2_name %> is now at <%= @player_2_hp %> HP
+<%= @game.player_2.name %> is now at <%= @game.player_2.hp %> HP
 <br>
 <a href="/attack">Attack</a>
+<% @game.switch_turn %>

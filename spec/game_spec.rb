@@ -1,8 +1,8 @@
-require_relative '../model/game'
+require 'game'
 
 describe Game do
-  let (:cristina) { double Player }
-  let (:sam) { double Player }
+  let (:cristina) { double :player_1 }
+  let (:sam) { double :player_2 }
   subject(:game) { described_class.new(cristina, sam) }
 
   describe '#players' do
@@ -19,31 +19,25 @@ describe Game do
       expect(sam).to receive(:damage)
       game.attack(sam)
     end
-    # it 'returns error when not passed a valid Player instance' do
-    # 	expect { game.attack("Sam") }.to raise_error(ArgumentError, "Not a valid Player instance")
-    # end
-  end
-
-  describe '#switch_turn' do
-    it 'starts game with Player 1' do
-      expect(game.switch_turn).to eq sam
-    end
-    it 'switch to player 2' do
-      game.switch_turn
-      expect(game.switch_turn).to eq cristina
-    end
-    it 'switch to player 1' do
-      game.switch_turn
-      game.switch_turn
-      expect(game.switch_turn).to eq sam
-    end
   end
 
   describe '#turn' do
-    it "return instance of Player 2 who's turn it is" do
+    it 'starts game as Player 1' do
+      expect(game.turn).to eq cristina
+    end
+  end
+
+  describe '#switch_turn' do
+    it 'switches turn to other player' do
       game.switch_turn
       expect(game.turn).to eq sam
     end
+    it 'switches successfully a second time' do
+      game.switch_turn
+      game.switch_turn
+      expect(game.turn).to eq cristina
+    end
   end
+
 
 end

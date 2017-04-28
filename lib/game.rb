@@ -4,7 +4,7 @@ class Game
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
-    @turn = 1
+    @turn = player_1
   end
 
   def attack(player)
@@ -21,13 +21,15 @@ class Game
   end
 
   def switch_turn
-  	if @turn == 1
-  		@turn = 2
-	  	player_2
-  	elsif @turn == 2
-  		@turn = 1
-  		player_1
-  	end	
+    self.turn = receiver
   end
+
+  def receiver
+    players.select { |player| player != turn }.first
+  end
+
+  private
+  attr_accessor :players
+  attr_writer :turn
 
 end
