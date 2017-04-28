@@ -1,5 +1,7 @@
 class Game
 
+  attr_reader :turn
+
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @turn = 1

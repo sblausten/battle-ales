@@ -39,4 +39,11 @@ describe Game do
     end
   end
 
+  describe '#turn' do
+    it "return instance of Player 2 who's turn it is" do
+      game.switch_turn
+      expect(game.turn).to eq sam
+    end
+  end
+
 end

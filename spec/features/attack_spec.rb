@@ -1,10 +1,17 @@
 
 feature "Attack" do
 
-  scenario 'attack Player 2' do
+  scenario 'attack Player 2 on first turn' do
     sign_in_and_play
     click_link("Attack")
-    expect(page).to have_content 'Dave attacked Mittens'
+    expect(page).to have_content 'Alex attacked Sam'
+  end
+
+  scenario 'attack Player 1 on second turn' do
+    sign_in_and_play
+    click_link("Attack")
+    click_link("Attack")
+    expect(page).to have_content 'Sam attacked Alex'
   end
 
   scenario 'attack Player 2 and reduce their HP by 10' do
