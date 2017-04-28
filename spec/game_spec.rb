@@ -56,4 +56,10 @@ describe Game do
     end
   end
 
+  describe '#self.game' do
+    it 'initializes as nil' do
+      expect(Game.game).to be_nil
+    end
+  end
+
 end
