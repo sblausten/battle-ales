@@ -60,6 +60,9 @@ describe Game do
     it 'initializes as nil' do
       expect(Game.game).to be_nil
     end
+    it 'return instance of Game' do
+      expect(Game.game).to be_an_instance_of Game
+    end
   end
 
 end
