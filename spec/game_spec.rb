@@ -57,8 +57,8 @@ describe Game do
   end
 
   describe '#self.game' do
-    it 'initializes as nil' do
-      expect(Game.game).to be_nil
+    it 'is responded to by Game' do
+      expect(Game).to respond_to :game
     end
   end
 
