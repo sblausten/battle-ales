@@ -28,7 +28,7 @@ class Game
   end
 
   def lose?
-    true
+    (player_1.hp == 0) || (player_2.hp == 0)
   end
 
   private
