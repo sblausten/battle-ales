@@ -11,7 +11,6 @@ class Game
   def self.game=(new_game)
     @game = new_game
   end
-    
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
