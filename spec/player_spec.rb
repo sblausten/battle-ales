@@ -21,7 +21,7 @@ describe Player do
 
   describe '#damage' do
     it 'reduces players HP by at least 10' do
-      expect { cristina.damage }.to change { cristina.hp }.by_at_least -10
+      expect { cristina.damage }.to change { cristina.hp }.by_at_most -10
     end
     it 'reduces players HP by at most 30' do
       expect { cristina.damage }.to change { cristina.hp }.by_at_least -30
